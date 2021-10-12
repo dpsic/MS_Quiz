@@ -1,22 +1,21 @@
 package com.example.ms_formation.entites;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
+
 @Entity
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@ToString
 public class Person {
-    @Id @GeneratedValue (strategy = GenerationType.AUTO)
+    @Id @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
-    @ManyToMany(fetch=FetchType.EAGER)
-    private Collection<Formation> formations=new ArrayList<>();
+    @ManyToOne
+    private Fonction fonction;
 
 }

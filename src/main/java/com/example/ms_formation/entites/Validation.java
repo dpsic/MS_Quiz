@@ -6,18 +6,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Formation {
+public class Validation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String label;
+    private  Long id;
+    private Date dateValidation;
     @ManyToOne
-    private Categorie categorie;
-
+    private Person person;
+    @ManyToOne
+    private Formation formation;
 }
